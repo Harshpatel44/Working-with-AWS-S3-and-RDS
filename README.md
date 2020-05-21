@@ -4,7 +4,7 @@
 <p>1. First I created the bucket with all public permissions, so I can use it freely the first time and to get it working.</p>
 <p>2. I tried creating an IAM user and gave it programming access to connect python program to the bucket. tried creatign the first user but, it throws some error and can not create users succesfully. Then I found that, all the access ID and shared key and other credentials are provided by AWS educate on their workbench. We need to click on account details and fetch the credentials.</p>
 <p>3. I got to know later that we need to paste all those credentials in a folder C:/users/username/.aws/credentials file, and then it worked.</p>
-
+<p>4. After creating another bucket, I had to block the public access of that bucket. I searched and found about policies. I created a policy which did not work. Then I looked over the buckets in AWS and found a policy generator which helped.
 
 
 <h2>References</h2>
