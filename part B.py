@@ -31,30 +31,11 @@ import boto3
 
 """get ACL permissions"""
 s3Client = boto3.client('s3')
-#print(s3Client.get_bucket_acl(Bucket='second-bucket-csci-5410'))
+json_file=s3Client.get_bucket_acl(Bucket='second-bucket-csci-5410')
+json_file.pop('ResponseMetadata')
+json_file['Grants'][0]['Permission']='READ'
+s3Client.put_bucket_acl( Bucket='second-bucket-csci-5410', AccessControlPolicy=json_file)
 
-"""Set ACL permissions"""
-s3Client.put_bucket_acl(
-    Bucket='second-bucket-csci-5410',
-    AccessControlPolicy={
-        'Grants': [
-            {
-                'Grantee': {
-                    'DisplayName': 'awslabsc0w758896t1588300632',
-                    # 'EmailAddress': '',
-                    'ID': '303d17372927d47a314483c707fd247cacfb8334cbbb190f9477a980ffdf3c5a',
-                    'Type': 'CanonicalUser',
-                    # 'URI': 'string'
-                },
-                'Permission': 'READ_ACP'
-            },
-        ],
-        'Owner': {
-            'DisplayName': 'awslabsc0w758896t1588300632',
-            'ID': '303d17372927d47a314483c707fd247cacfb8334cbbb190f9477a980ffdf3c5a'
-        }
-    },
-)
 print(s3Client.get_bucket_acl(Bucket='second-bucket-csci-5410'))
 
 
