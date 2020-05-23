@@ -28,7 +28,7 @@ class RdsApi:
         cur=object.cursor()
         query = "SELECT Password FROM users WHERE userID="+str(userID)
         cur.execute(query)
-        print(cur.fetchone())
+        print(generatePassword.decryptPassword(cur.fetchone()[0]))     #get decrypted password
         object.commit()
         cur.close()
         object.close()
