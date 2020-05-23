@@ -63,14 +63,21 @@ class s3Api:
         s3_resource.Object(bucketName,file_name).delete()
         print('Key deleted')
 
-s3 = s3Api()
-s3.listBuckets()
-s3.fileUpload("first-bucket-csci-5410","harsh.txt","harsh.txt")
-s3.createBucket("second-bucket-csci-5410")
-s3.manageBucketAccess("second-bucket-csci-5410")
-s3.getAclPermissions("second-bucket-csci-5410")
-s3.changeAclPermissions("second-bucket-csci-5410","READ")
-s3.copyKeysBetweenBuckets("first-bucket-csci-5410","second-bucket-csci-5410","harsh.txt")
-s3.deleteKeys("first-bucket-csci-5410","harsh.txt")
+    """ Downloading a file from the bucket """
+    def downloadFile(self,bucket_name,obj_name,dest_file_name):
+        s3Client = boto3.client('s3')
+        s3Client.download_file(bucket_name,obj_name,dest_file_name)
+        print('file downloaded')
 
+
+# s3 = s3Api()
+# s3.listBuckets()
+# s3.fileUpload("first-bucket-csci-5410","harsh.txt","harsh.txt")
+# s3.createBucket("second-bucket-csci-5410")
+# s3.manageBucketAccess("second-bucket-csci-5410")
+# s3.getAclPermissions("second-bucket-csci-5410")
+# s3.changeAclPermissions("second-bucket-csci-5410","READ")
+# s3.copyKeysBetweenBuckets("first-bucket-csci-5410","second-bucket-csci-5410","harsh.txt")
+# s3.deleteKeys("first-bucket-csci-5410","harsh.txt")
+# s3.downloadFile("first-bucket-csci-5410","Lookup5410.txt","Lookup.txt")
 
