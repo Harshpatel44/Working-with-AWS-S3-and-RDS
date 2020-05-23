@@ -11,10 +11,18 @@
 <p>7. I changed the ACL settings using the function "put_bucket_acl". I fetched the json file from "get_bucket_acl" and modified it so that to eliminate write access to root user as required. Then I set is using "put_bucket_acl" function.
 <p>8. Now I had to move files from one bucket to another, so I copied it from bucket1 to bucket2 and deleted from bucket1.</p>
 
-<h2>Flowchart</h2>
+<h3>Flowchart</h3>
 <img src="Working on S3/Flowchart/flowchart.png">
+
+<h2> Working with AWS RDS </h2>
+<p>1. After creating the RDS database which has public accessibility, I connected it with MySQL Workbench using the endpoint,port,user,password. I added the inbound rule "0.0.0.0/0" as I was working for the first time. This is not considered secure so it is adviced to change is afterwards.</p>
+<p>2. I created a database using Workbench and added a table "users" which contained 2 fields 1. userID, 2. Password.</p>
+<p>3. After encrypting the password according to the lookup table, I inserted the values using python script.</p>
+<p>4. Finally I tried to fetch the values inserted using the script </p>
+
 <h2>References</h2>
 <p><i>https://docs.ceph.com/docs/master/radosgw/s3/python/</i></p>
 <p><i>https://boto3.amazonaws.com/v1/documentation/api/latest/guide/s3-example-creating-buckets.html</i></p>
 <p><i>https://realpython.com/python-boto3-aws-s3/#creating-a-bucket</i></p>
 <p><i>https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.html#S3.Client.put_public_access_block</i></p>
+<p><i>https://pynative.com/python-mysql-database-connection/</i></p>
