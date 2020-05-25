@@ -25,5 +25,3 @@ def decryptPassword(password):
             if(encryptedLetter==j[2:]):
                 string+=j[0]
     return string
-
-print()

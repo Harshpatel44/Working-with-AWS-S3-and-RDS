@@ -35,7 +35,7 @@ class RdsApi:
 
 
 api = RdsApi()
-#api.addData(1,"harsh")
+api.addData(1,"harsh")
 api.fetchData(1)
 
 
